@@ -21,7 +21,8 @@
                   <p class="card-text">ID: {{user.id}}</p>
                 </div>
             </div>
-         }@empty {
+         }
+           @if (!state.loading && state.users.length === 0) {
                 <div class="text-center w-100 p-5">
                     <h3 class="text-muted">No user found with this ID</h3>
                     <p>Please try another ID or clear the search.</p>
