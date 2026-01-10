@@ -1,0 +1,47 @@
+<app-header (OnSearchById)="onSearch($event)"></app-header>
+@if ((users$ | async)?.loading) {
+  <div class="progress-container">
+    <div class="progress-bar-value"></div>
+  </div>
+}
+<div class="container-fluid pt-5">
+    
+    @if(users$ | async; as state){
+        @if(state.users.length > 1 ){
+            <div class="text-center mb-3">Show {{page * limit}} users of {{state.total}}</div>
+        }
+        <!-- card list -->
+        <div class="d-flex justify-content-evenly align-items-center flex-wrap gap-3  ">
+            
+        @for(user of state.users; track user.id){
+            <div class="card d-flex align-items-center" appHighlight style="width: 15rem;"(click)="showDetails(user.id)">
+                <img [src]="user.image" class="card-img-top border border-0 rounded-circle" style="width: 10rem; height:10rem" >
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
+                  <p class="card-text">ID: {{user.id}}</p>
+                </div>
+            </div>
+         }@empty {
+                <div class="text-center w-100 p-5">
+                    <h3 class="text-muted">No user found with this ID</h3>
+                    <p>Please try another ID or clear the search.</p>
+                </div>
+            }
+         </div>
+
+         <!-- pagination -->
+          @if(!isSearch){
+            <div class="pagination d-flex justify-content-center p-5">
+                <button class="btn border m-2" appHighlight (click)="prev()" [disabled]="page === 1">prev</button>
+                
+                <div class="btn btn-primary p-3" appHighlight>{{page}}</div>
+        
+                <button class="btn border m-2" appHighlight (click)="next()" [disabled]="(page * limit) >= state.total">next</button>
+            </div>
+          }
+
+    }
+
+    
+    
+</div>

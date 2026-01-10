@@ -1,0 +1,142 @@
+@if(user$ | async ; as user){
+    <div class="container pt-4">
+      <button class="btn btn-link text-decoration-none back-link p-0 mb-3" (click)="goBack()">
+        <i class="bi bi-arrow-left me-2"></i>
+        Back to Users
+      </button>
+    </div>
+    <div class="container py-5">
+  <div class="card main-header-card mb-4 border-0 shadow-sm text-center">
+    <div class="card-body py-5">
+      <div class="profile-avatar mb-3">
+        <img [src]="user.image"
+             alt="User Avatar" class="rounded-circle border">
+      </div>
+      <h2 class="fw-bold mb-1">{{user.firstName}}  {{user.lastName}}</h2>
+      <div class="d-flex justify-content-center align-items-center gap-2">
+        <span class="text-muted">ID: {{user.id}}</span>
+        <span class="dot">•</span>
+        <span class="badge bg-primary-light text-primary px-3">{{user.role}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card h-100 border-0 shadow-sm p-3">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-4">Personal Information</h5>
+          
+          <div class="info-item d-flex align-items-center mb-3">
+            <div class="icon-box me-3"><i class="bi bi-calendar-event"></i></div>
+            <div>
+              <p class="label mb-0">AGE</p>
+              <p class="value mb-0">{{user.age}} years old</p>
+            </div>
+          </div>
+
+          <div class="info-item d-flex align-items-center mb-3">
+            <div class="icon-box me-3"><i class="bi bi-person"></i></div>
+            <div>
+              <p class="label mb-0">GENDER</p>
+              <p class="value mb-0">{{user.gender}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 border-0 shadow-sm p-3">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-4">Contact Information</h5>
+          
+          <div class="info-item d-flex align-items-center mb-3">
+            <div class="icon-box me-3"><i class="bi bi-envelope"></i></div>
+            <div>
+              <p class="label mb-0">EMAIL</p>
+              <p class="value mb-0">{{user.email}}</p>
+            </div>
+          </div>
+
+          <div class="info-item d-flex align-items-center">
+            <div class="icon-box me-3"><i class="bi bi-telephone"></i></div>
+            <div>
+              <p class="label mb-0">PHONE</p>
+              <p class="value mb-0">{{user.phone}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div class="col-md-6">
+      <div class="card h-100 border-0 shadow-sm p-3">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-4">Company Information</h5>
+          
+          <div class="info-item d-flex align-items-center mb-3">
+            <div class="icon-box me-3"><i class="bi bi-building"></i></div>
+            <div>
+              <p class="label mb-0">company</p>
+              <p class="value mb-0">{{user.company?.name}}</p>
+            </div>
+          </div>
+
+          <div class="info-item d-flex align-items-center mb-3">
+            <div class="icon-box me-3"><i class="bi bi-briefcase"></i></div>
+            <div>
+              <p class="label mb-0">department</p>
+              <p class="value mb-0">{{user.company?.department}}</p>
+            </div>
+          </div>
+
+          <div class="info-item d-flex align-items-center">
+            <div class="icon-box me-3"><i class="bi bi-briefcase"></i></div>
+            <div>
+              <p class="label mb-0">title</p>
+              <p class="value mb-0">{{user.company?.title}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+        <div class="col-md-6">
+      <div class="card h-100 border-0 shadow-sm p-3">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-4">Address Information</h5>
+          
+          <div class="info-item d-flex align-items-center mb-3">
+            <div class="icon-box me-3"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <p class="label mb-0">country</p>
+              <p class="value mb-0">{{user.address.country}}</p>
+            </div>
+          </div>
+
+          <div class="info-item d-flex align-items-center mb-3">
+            <div class="icon-box me-3"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <p class="label mb-0">state</p>
+              <p class="value mb-0">{{user.address.state}}</p>
+            </div>
+          </div>
+
+          <div class="info-item d-flex align-items-center">
+            <div class="icon-box me-3"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <p class="label mb-0">city</p>
+              <p class="value mb-0">{{user.address.city}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+}
