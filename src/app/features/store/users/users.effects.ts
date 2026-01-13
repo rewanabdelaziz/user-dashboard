@@ -26,5 +26,5 @@ export const SelectAllUsersEffect = createEffect(
       )
     );
   },
-  { functional: true } // ضروري جداً لتوضيح أنه Functional Effect
+  { functional: true } // Functional Effect
 );
